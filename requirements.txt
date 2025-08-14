@@ -1,0 +1,7 @@
+requests
+beautifulsoup4
+json
+os
+re
+pyDes 
+pycryptodome 

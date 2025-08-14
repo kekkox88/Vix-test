@@ -1,0 +1,648 @@
+[
+  {
+    "id": "uefa-conference-league-astana-vs-lausanne-sport-20250814",
+    "name": "UEFA Conference League : Astana vs Lausanne Sport",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-1.php",
+        "title": "RTS 2 Serbia"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-5.php",
+        "title": "RTS 2 Switzerland"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-7.php",
+        "title": "Qazsport"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-2.php",
+        "title": "Sport 1 Ukraine"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 14:00 UTC",
+    "eventStart": "2025-08-14T14:00:00Z"
+  },
+  {
+    "id": "uefa-conference-league-ararat-armenia-vs-sparta-praha-20250814",
+    "name": "UEFA Conference League : Ararat-Armenia vs Sparta Praha",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-1025.php",
+        "title": "Nova Sport 5 CZ"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 16:00 UTC",
+    "eventStart": "2025-08-14T16:00:00Z"
+  },
+  {
+    "id": "uefa-conference-league-sabah-vs-levski-sofia-20250814",
+    "name": "UEFA Conference League : Sabah vs Levski Sofia",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-22.php",
+        "title": "Ictimai TV"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 16:00 UTC",
+    "eventStart": "2025-08-14T16:00:00Z"
+  },
+  {
+    "id": "uefa-europa-league-noah-vs-lincoln-red-imps-20250814",
+    "name": "UEFA Europa League : Noah vs Lincoln Red Imps",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-147.php",
+        "title": "Sport 5 Stars Israel"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/UEFA_Europa_League.png",
+    "category": "coppe",
+    "description": "UEFA Europa League 14/08 17:00 UTC",
+    "eventStart": "2025-08-14T17:00:00Z"
+  },
+  {
+    "id": "uefa-europa-league-wolfsberger-ac-vs-paok-20250814",
+    "name": "UEFA Europa League : Wolfsberger AC vs PAOK",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-1.php",
+        "title": "ORF eins"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/UEFA_Europa_League.png",
+    "category": "coppe",
+    "description": "UEFA Europa League 14/08 17:00 UTC",
+    "eventStart": "2025-08-14T17:00:00Z"
+  },
+  {
+    "id": "uefa-conference-league-paksi-se-vs-polessya-20250814",
+    "name": "UEFA Conference League : Paksi SE vs Polessya",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-265.php",
+        "title": "M4 Sport Hungary"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 17:00 UTC",
+    "eventStart": "2025-08-14T17:00:00Z"
+  },
+  {
+    "id": "uefa-conference-league-gy-ri-eto-vs-aik-20250814",
+    "name": "UEFA Conference League : Győri ETO vs AIK",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-23.php",
+        "title": "Duna World Hungary"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-13.php",
+        "title": "Arena Sport 1 Slovakia"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 17:00 UTC",
+    "eventStart": "2025-08-14T17:00:00Z"
+  },
+  {
+    "id": "uefa-conference-league-omonia-nicosia-vs-araz-20250814",
+    "name": "UEFA Conference League : Omonia Nicosia vs Araz",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-911.php",
+        "title": "Cytavision Sports 1 Cyprus"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 17:00 UTC",
+    "eventStart": "2025-08-14T17:00:00Z"
+  },
+  {
+    "id": "uefa-conference-league-hammarby-vs-rosenborg-20250814",
+    "name": "UEFA Conference League : Hammarby vs Rosenborg",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-18.php",
+        "title": "SportKlub 6 Croatia"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-19.php",
+        "title": "SportKlub 6 Slovenia"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 17:00 UTC",
+    "eventStart": "2025-08-14T17:00:00Z"
+  },
+  {
+    "id": "uefa-europa-league-breidablik-vs-zrinjski-20250814",
+    "name": "UEFA Europa League : Breidablik vs Zrinjski",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-579.php",
+        "title": "Arena Sport 1 BiH"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-433.php",
+        "title": "Arena Sport 2 Croatia"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/UEFA_Europa_League.png",
+    "category": "coppe",
+    "description": "UEFA Europa League 14/08 17:30 UTC",
+    "eventStart": "2025-08-14T17:30:00Z"
+  },
+  {
+    "id": "uefa-conference-league-vaduz-vs-az-20250814",
+    "name": "UEFA Conference League : Vaduz vs AZ",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-393.php",
+        "title": "Ziggo Sport 1 NL"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 17:30 UTC",
+    "eventStart": "2025-08-14T17:30:00Z"
+  },
+  {
+    "id": "uefa-conference-league-arda-vs-kauno-algiris-20250814",
+    "name": "UEFA Conference League : Arda vs Kauno Žalgiris",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-467.php",
+        "title": "Diema Sport 3 Bulgaria"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 17:30 UTC",
+    "eventStart": "2025-08-14T17:30:00Z"
+  },
+  {
+    "id": "uefa-conference-league-beitar-jerusalem-vs-riga-20250814",
+    "name": "UEFA Conference League : Beitar Jerusalem vs Riga",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-140.php",
+        "title": "Sport 1 Israel"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 17:30 UTC",
+    "eventStart": "2025-08-14T17:30:00Z"
+  },
+  {
+    "id": "uefa-europa-league-utrecht-vs-servette-20250814",
+    "name": "UEFA Europa League : Utrecht vs Servette",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-5.php",
+        "title": "RTS 2 Switzerland"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-398.php",
+        "title": "Ziggo Sport 2 NL"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-103.php",
+        "title": "SportKlub 3 Croatia"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-20.php",
+        "title": "SportKlub 3 Slovenia"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/UEFA_Europa_League.png",
+    "category": "coppe",
+    "description": "UEFA Europa League 14/08 18:00 UTC",
+    "eventStart": "2025-08-14T18:00:00Z"
+  },
+  {
+    "id": "uefa-europa-league-shakhtar-donetsk-vs-panathinaikos-20250814",
+    "name": "UEFA Europa League : Shakhtar Donetsk vs Panathinaikos",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-623.php",
+        "title": "Cosmote Sport 2 Greece"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/UEFA_Europa_League.png",
+    "category": "coppe",
+    "description": "UEFA Europa League 14/08 18:00 UTC",
+    "eventStart": "2025-08-14T18:00:00Z"
+  },
+  {
+    "id": "uefa-europa-league-maccabi-tel-aviv-vs-hamrun-spartans-20250814",
+    "name": "UEFA Europa League : Maccabi Tel Aviv vs Hamrun Spartans",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-141.php",
+        "title": "Sport 2 Israel"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/UEFA_Europa_League.png",
+    "category": "coppe",
+    "description": "UEFA Europa League 14/08 18:00 UTC",
+    "eventStart": "2025-08-14T18:00:00Z"
+  },
+  {
+    "id": "uefa-conference-league-celje-vs-lugano-20250814",
+    "name": "UEFA Conference League : Celje vs Lugano",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-6.php",
+        "title": "ŠTV 1 Slovenia"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-7.php",
+        "title": "RSI La 2"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 18:00 UTC",
+    "eventStart": "2025-08-14T18:00:00Z"
+  },
+  {
+    "id": "uefa-conference-league-maccabi-haifa-vs-rak-w-cz-stochowa-20250814",
+    "name": "UEFA Conference League : Maccabi Haifa vs Raków Częstochowa",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-142.php",
+        "title": "Sport 3 Israel"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 18:00 UTC",
+    "eventStart": "2025-08-14T18:00:00Z"
+  },
+  {
+    "id": "uefa-conference-league-be-ikta-vs-st-patrick-s-20250814",
+    "name": "UEFA Conference League : Beşiktaş vs St Patrick's",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-8.php",
+        "title": "HT Spor Turkey"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 18:00 UTC",
+    "eventStart": "2025-08-14T18:00:00Z"
+  },
+  {
+    "id": "uefa-conference-league-neman-grodno-vs-k-20250814",
+    "name": "UEFA Conference League : Neman Grodno vs KÍ",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-9.php",
+        "title": "Belarus 5"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 18:00 UTC",
+    "eventStart": "2025-08-14T18:00:00Z"
+  },
+  {
+    "id": "uefa-conference-league-aek-athens-vs-aris-20250814",
+    "name": "UEFA Conference League : AEK Athens vs Aris",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-914.php",
+        "title": "Cytavision Sports 4 Cyprus"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-622.php",
+        "title": "Cosmote Sport 1 Greece"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 18:00 UTC",
+    "eventStart": "2025-08-14T18:00:00Z"
+  },
+  {
+    "id": "uefa-conference-league-jagiellonia-bia-ystok-vs-silkeborg-20250814",
+    "name": "UEFA Conference League : Jagiellonia Białystok vs Silkeborg",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-11.php",
+        "title": "Polsat Sport Premium 1 Poland"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-47.php",
+        "title": "Polsat Sport 1 Poland"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 18:15 UTC",
+    "eventStart": "2025-08-14T18:15:00Z"
+  },
+  {
+    "id": "uefa-europa-league-sporting-braga-vs-cfr-cluj-20250814",
+    "name": "UEFA Europa League : Sporting Braga vs CFR Cluj",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-400.php",
+        "title": "Digi Sport 1 Romania"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-49.php",
+        "title": "Sport TV1 Portugal"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-290.php",
+        "title": "Sport TV5 Portugal"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/UEFA_Europa_League.png",
+    "category": "coppe",
+    "description": "UEFA Europa League 14/08 18:30 UTC",
+    "eventStart": "2025-08-14T18:30:00Z"
+  },
+  {
+    "id": "uefa-conference-league-spartak-trnava-vs-csu-craiova-20250814",
+    "name": "UEFA Conference League : Spartak Trnava vs CSU Craiova",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-401.php",
+        "title": "Digi Sport 2 Romania"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-24.php",
+        "title": "RTVS Sport Slovakia"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 18:30 UTC",
+    "eventStart": "2025-08-14T18:30:00Z"
+  },
+  {
+    "id": "uefa-conference-league-dundee-united-vs-rapid-wien-20250814",
+    "name": "UEFA Conference League : Dundee United vs Rapid Wien",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-145.php",
+        "title": "Sport 5 Plus Israel"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 18:45 UTC",
+    "eventStart": "2025-08-14T18:45:00Z"
+  },
+  {
+    "id": "uefa-conference-league-dinamo-city-vs-hajduk-split-20250814",
+    "name": "UEFA Conference League : Dinamo City vs Hajduk Split",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-12.php",
+        "title": "SuperSport 1 Albania"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 18:45 UTC",
+    "eventStart": "2025-08-14T18:45:00Z"
+  },
+  {
+    "id": "uefa-europa-league-legia-warszawa-vs-aek-larnaca-20250814",
+    "name": "UEFA Europa League : Legia Warszawa vs AEK Larnaca",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-128.php",
+        "title": "TVP Sport Poland"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-561.php",
+        "title": "TVP2 Poland"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-13.php",
+        "title": "Arena Sport 1 Slovakia"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-912.php",
+        "title": "Cytavision Sports 2 Cyprus"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-139.php",
+        "title": "Arena 3 Premium Serbia"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/UEFA_Europa_League.png",
+    "category": "coppe",
+    "description": "UEFA Europa League 14/08 19:00 UTC",
+    "eventStart": "2025-08-14T19:00:00Z"
+  },
+  {
+    "id": "uefa-conference-league-egnatia-rrogozhin-vs-olimpija-20250814",
+    "name": "UEFA Conference League : Egnatia Rrogozhinë vs Olimpija",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-2.php",
+        "title": "SuperSport 2 Digitalb"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-3.php",
+        "title": "Kanal A Slovenia"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 19:00 UTC",
+    "eventStart": "2025-08-14T19:00:00Z"
+  },
+  {
+    "id": "uefa-conference-league-shamrock-rovers-vs-ballkani-20250814",
+    "name": "UEFA Conference League : Shamrock Rovers vs Ballkani",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-55.php",
+        "title": "LOITV"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 19:00 UTC",
+    "eventStart": "2025-08-14T19:00:00Z"
+  },
+  {
+    "id": "uefa-conference-league-santa-clara-vs-larne-20250814",
+    "name": "UEFA Conference League : Santa Clara vs Larne",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-74.php",
+        "title": "Sport TV2 Portugal"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 19:00 UTC",
+    "eventStart": "2025-08-14T19:00:00Z"
+  },
+  {
+    "id": "uefa-conference-league-austria-wien-vs-ban-k-ostrava-20250814",
+    "name": "UEFA Conference League : Austria Wien vs Baník Ostrava",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-1.php",
+        "title": "ORF eins"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 19:00 UTC",
+    "eventStart": "2025-08-14T19:00:00Z"
+  },
+  {
+    "id": "uefa-conference-league-hibernian-vs-partizan-20250814",
+    "name": "UEFA Conference League : Hibernian vs Partizan",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-14.php",
+        "title": "RTS 1 Serbia"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-134.php",
+        "title": "Arena 1 Premium Serbia"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-101.php",
+        "title": "SportKlub 1 Croatia"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-21.php",
+        "title": "SportKlub 1 Slovenia"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Conference_League.png",
+    "category": "coppe",
+    "description": "Conference League 14/08 19:00 UTC",
+    "eventStart": "2025-08-14T19:00:00Z"
+  },
+  {
+    "id": "atp-masters-1000-2025-2025-cincinnati-open-tennis-atp-wta-20250814",
+    "name": "ATP Masters 1000 2025 | 2025 Cincinnati Open Tennis ATP/WTA",
+    "streams": [
+      {
+        "url": "https://thedaddy.click/stream/stream-40.php",
+        "title": "Tennis Channel"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-46.php",
+        "title": "Sky Sports Tennis UK"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-113.php",
+        "title": "TSN3"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-701.php",
+        "title": "TV4 Tennis"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-411.php",
+        "title": "Sportsnet One"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-406.php",
+        "title": "Sportsnet Ontario"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-407.php",
+        "title": "Sportsnet West"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-408.php",
+        "title": "Sportsnet East"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-833.php",
+        "title": "TVA Sports"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-47.php",
+        "title": "Polsat Sport 1 Poland"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-74.php",
+        "title": "Sport TV2 Portugal"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-393.php",
+        "title": "Ziggo Sport 1 NL"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-915.php",
+        "title": "Cytavision Sports 5 Cyprus"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-396.php",
+        "title": "Ziggo Sport 4 NL"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-491.php",
+        "title": "beIN SPORTS Australia 1"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-492.php",
+        "title": "beIN SPORTS Australia 2"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-472.php",
+        "title": "Max Sport 1 Bulgaria"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-474.php",
+        "title": "Max Sport 3 Bulgaria"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-712.php",
+        "title": "beIN Sports 1 Malaysia"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-713.php",
+        "title": "beIN Sports 2 Malaysia"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-102.php",
+        "title": "Sport Klub 2 Croatia"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-101.php",
+        "title": "Sport Klub 1 Croatia"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-453.php",
+        "title": "Sport Klub HD Croatia"
+      },
+      {
+        "url": "https://thedaddy.click/stream/stream-612.php",
+        "title": "Arena Tenis"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/qwertyuiop8899/logo/main/Tennis.png",
+    "category": "tennis",
+    "description": "Tennis 14/08 15:00 UTC",
+    "eventStart": "2025-08-14T15:00:00Z"
+  }
+]
