@@ -873,7 +873,8 @@ function createBuilder(initialConfig: AddonConfig = {}) {
                     type: 'tv',
                     category: [requestedSlug],
                     description: 'Nessuno Stream disponibile oggi. StreamViX',
-                    _placeholder: true
+                    _placeholder: true,
+                    placeholderVideo: `${PLACEHOLDER_LOGO_BASE}/nostream.mp4`
                 }];
             }
             
@@ -1077,8 +1078,9 @@ function createBuilder(initialConfig: AddonConfig = {}) {
 
                     // Gestione placeholder: ritorna un singolo "stream" fittizio (immagine)
                     if ((channel as any)._placeholder) {
+                        const vid = (channel as any).placeholderVideo || (channel as any).logo || (channel as any).poster || '';
                         return { streams: [ {
-                            url: (channel as any).logo || (channel as any).poster || '',
+                            url: vid,
                             title: 'Nessuno Stream'
                         } ] };
                     }
