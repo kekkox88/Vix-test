@@ -82,7 +82,10 @@ EXTRA_LOGOS = {
     'Ice Hockey': 'IceHockey.png',  # Nome file da confermare
     'Wrestling': 'Wrestling.png',    # Nome file da confermare
     'Boxing': 'Boxing.png',          # Nome file da confermare
+    'Baseball': 'Baseball.png',
+    'NFL': 'NFL.png',
     'Darts': 'Darts.png'             # Nome file da confermare
+     
 }
 
 MONTHS = {m: i for i, m in enumerate([
@@ -224,6 +227,9 @@ def map_category(category_src: str, raw_event: str) -> str | None:
         return 'boxing'
     if category_src == 'Darts':
         return 'darts'
+    if category_src == 'Football':
+        if re.search(r'\bNFL\b', raw_event, re.IGNORECASE): return 'NFL'      
+        return None
     return None
 
 def should_include_category(cat: str) -> bool:
