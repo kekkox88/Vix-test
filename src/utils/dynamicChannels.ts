@@ -89,10 +89,12 @@ export function mergeDynamic(staticList: any[]): any[] {
   if (!dyn.length) return staticList;
   const existingIds = new Set(staticList.map(c => c.id));
   const merged = [...staticList];
+  let added = 0;
   for (const ch of dyn) {
     if (!existingIds.has(ch.id)) {
       merged.push({
         id: ch.id,
+        type: 'tv', // assicurati che Stremio riconosca il tipo
         name: ch.name,
         logo: ch.logo,
         poster: ch.logo,
@@ -103,7 +105,11 @@ export function mergeDynamic(staticList: any[]): any[] {
   epgChannelIds: ch.epgChannelIds || [],
   _dynamic: true
       });
+      added++;
     }
+  }
+  if (added) {
+    try { console.log(`🔄 mergeDynamic: aggiunti ${added} canali dinamici (totale catalogo provvisorio: ${merged.length})`); } catch {}
   }
   return merged;
 }
