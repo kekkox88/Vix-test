@@ -853,15 +853,28 @@ function createBuilder(initialConfig: AddonConfig = {}) {
                     background: (channel as any).background || (channel as any).poster || ''
                 };
                 
-                // Aggiungi EPG nel catalogo
-                if (epgManager) {
+                // Per canali dinamici: niente EPG, mostra solo ora inizio evento
+                if ((channel as any)._dynamic) {
+                    const eventStart = (channel as any).eventStart || (channel as any).eventstart; // fallback
+                    if (eventStart) {
+                        try {
+                            const dt = new Date(eventStart);
+                            const hhmm = dt.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Europe/Rome' }).replace(/\./g, ':');
+                            const baseDesc = channel.description || '';
+                            channelWithPrefix.description = `${channel.name}\nInizio: ${hhmm} (Europe/Rome)${baseDesc ? `\n${baseDesc}` : ''}`.trim();
+                        } catch {
+                            channelWithPrefix.description = channel.description || channel.name;
+                        }
+                    } else {
+                        channelWithPrefix.description = channel.description || channel.name;
+                    }
+                } else if (epgManager) {
+                    // Canali tradizionali: EPG
                     try {
                         const epgChannelIds = (channel as any).epgChannelIds;
                         const epgChannelId = epgManager.findEPGChannelId(channel.name, epgChannelIds);
-                        
                         if (epgChannelId) {
                             const currentProgram = await epgManager.getCurrentProgram(epgChannelId);
-                            
                             if (currentProgram) {
                                 const startTime = epgManager.formatTime(currentProgram.start);
                                 const endTime = currentProgram.stop ? epgManager.formatTime(currentProgram.stop) : '';
@@ -922,36 +935,39 @@ function createBuilder(initialConfig: AddonConfig = {}) {
                     language: "it"
                 };
                 
-                // Aggiungi EPG nel meta
-                if (epgManager) {
+                // Meta: canali dinamici senza EPG con ora inizio
+                if ((channel as any)._dynamic) {
+                    const eventStart = (channel as any).eventStart || (channel as any).eventstart;
+                    let desc = channel.description || '';
+                    if (eventStart) {
+                        try {
+                            const dt = new Date(eventStart);
+                            const hhmm = dt.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Europe/Rome' }).replace(/\./g, ':');
+                            desc = `${channel.name}\nInizio: ${hhmm} (Europe/Rome)${desc ? `\n${desc}` : ''}`.trim();
+                        } catch {/* ignore */}
+                    }
+                    (metaWithPrefix as any).description = desc || channel.name;
+                } else if (epgManager) {
+                    // Meta: canali tradizionali con EPG
                     try {
                         const epgChannelIds = (channel as any).epgChannelIds;
                         const epgChannelId = epgManager.findEPGChannelId(channel.name, epgChannelIds);
-                        
                         if (epgChannelId) {
                             const currentProgram = await epgManager.getCurrentProgram(epgChannelId);
                             const nextProgram = await epgManager.getNextProgram(epgChannelId);
-                            
                             let epgDescription = channel.description || '';
-                            
                             if (currentProgram) {
                                 const startTime = epgManager.formatTime(currentProgram.start);
                                 const endTime = currentProgram.stop ? epgManager.formatTime(currentProgram.stop) : '';
                                 epgDescription += `\n\n🔴 IN ONDA ORA (${startTime}${endTime ? `-${endTime}` : ''}): ${currentProgram.title}`;
-                                if (currentProgram.description) {
-                                    epgDescription += `\n${currentProgram.description}`;
-                                }
+                                if (currentProgram.description) epgDescription += `\n${currentProgram.description}`;
                             }
-                            
                             if (nextProgram) {
                                 const nextStartTime = epgManager.formatTime(nextProgram.start);
                                 const nextEndTime = nextProgram.stop ? epgManager.formatTime(nextProgram.stop) : '';
                                 epgDescription += `\n\n⏭️ A SEGUIRE (${nextStartTime}${nextEndTime ? `-${nextEndTime}` : ''}): ${nextProgram.title}`;
-                                if (nextProgram.description) {
-                                    epgDescription += `\n${nextProgram.description}`;
-                                }
+                                if (nextProgram.description) epgDescription += `\n${nextProgram.description}`;
                             }
-                            
                             metaWithPrefix.description = epgDescription;
                         }
                     } catch (epgError) {
@@ -1034,16 +1050,20 @@ function createBuilder(initialConfig: AddonConfig = {}) {
                     if ((channel as any)._dynamic && Array.isArray((channel as any).dynamicDUrls) && (channel as any).dynamicDUrls.length) {
                         for (const d of (channel as any).dynamicDUrls) {
                             if (!d.url) continue;
+                            const provider = (d.title || '').trim();
+                            const evtTitle = channel.name || '';
+                            // nuovo formato: (provider) // Evento  oppure solo Evento se provider mancante
+                            const baseTitle = provider ? `(${provider}) // ${evtTitle}` : evtTitle;
                             if (mfpUrl && mfpPsw) {
                                 const daddyProxyUrl = `${mfpUrl}/extractor/video?host=DLHD&redirect_stream=true&api_password=${encodeURIComponent(mfpPsw)}&d=${encodeURIComponent(d.url)}`;
                                 streams.push({
                                     url: daddyProxyUrl,
-                                    title: `[EVT] ${channel.name} ${d.title ? '(' + d.title + ')' : ''}`.trim()
+                                    title: baseTitle.trim()
                                 });
                             } else {
                                 streams.push({
                                     url: d.url,
-                                    title: `[EVT][❌Proxy] ${channel.name} ${d.title ? '(' + d.title + ')' : ''}`.trim()
+                                    title: baseTitle.trim()
                                 });
                             }
                         }
