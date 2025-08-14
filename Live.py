@@ -64,7 +64,7 @@ BASE_CATEGORIES = {
     'UEFA Champions League', 'UEFA Europa League', 'Conference League', 'Coppa Italia',
     'Tennis', 'motor sports', 'motorsports',
     # Nuove categorie dirette
-    'Basketball', 'Volleyball', 'Ice Hockey', 'Wrestling', 'Boxing', 'Darts'
+    'Basketball', 'Volleyball', 'Ice Hockey', 'Wrestling', 'Boxing', 'Darts', 'WWE', 'Baseball', 'Football'
     # NB: 'Soccer' non è incluso: verrà trattato come contenitore da cui estrarre solo le competizioni whitelisted
 }
 
@@ -215,8 +215,9 @@ def map_category(category_src: str, raw_event: str) -> str | None:
             return 'volleyball'
         return None
     if category_src == 'Ice Hockey':
+        if category_src == 'NHL': return 'nhl'
         # Ice Hockey: includi (NHL) intera categoria; eventuali filtri futuri per team/lega
-        return 'icehockey'
+        return None
     if category_src == 'Wrestling':
         return 'wrestling'
     if category_src == 'Boxing':
