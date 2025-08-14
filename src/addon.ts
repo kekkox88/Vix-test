@@ -833,14 +833,15 @@ function createBuilder(initialConfig: AddonConfig = {}) {
                     "Coppe": "coppe",
                     "Tennis": "tennis",
                     "F1": "f1",
-                    "MotoGp": "motogp"
-                    ,
+                    "MotoGp": "motogp",
                     "Basket": "basket",
                     "Volleyball": "volleyball",
                     "Ice Hockey": "icehockey",
                     "Wrestling": "wrestling",
                     "Boxing": "boxing",
-                    "Darts": "darts"
+                    "Darts": "darts",
+                    "Baseball": "baseball",
+                    "NFL": "nfl"
                 };
                 
                 const targetCategory = genreMap[genre];
