@@ -62,7 +62,9 @@ EXCLUDE_KEYWORDS_CHANNEL = ["college", "youth"]
 BASE_CATEGORIES = {
     'Italy - Serie A', 'Italy - Serie B', 'Italy - Serie C',
     'UEFA Champions League', 'UEFA Europa League', 'Conference League', 'Coppa Italia',
-    'Tennis', 'motor sports', 'motorsports'
+    'Tennis', 'motor sports', 'motorsports',
+    # Nuove categorie dirette
+    'Basketball', 'Volleyball', 'Ice Hockey', 'Wrestling', 'Boxing', 'Darts'
     # NB: 'Soccer' non è incluso: verrà trattato come contenitore da cui estrarre solo le competizioni whitelisted
 }
 
@@ -71,6 +73,16 @@ COPPA_LOGOS = {
     'UEFA Europa League': 'UEFA_Europa_League.png',
     'Conference League': 'Conference_League.png',
     'Coppa Italia': 'Coppa_Italia.png'
+}
+
+# Loghi aggiuntivi (se presenti nel repo loghi)
+EXTRA_LOGOS = {
+    'Basketball': 'Basket.png',
+    'Volleyball': 'Pallavolo.png',
+    'Ice Hockey': 'IceHockey.png',  # Nome file da confermare
+    'Wrestling': 'Wrestling.png',    # Nome file da confermare
+    'Boxing': 'Boxing.png',          # Nome file da confermare
+    'Darts': 'Darts.png'             # Nome file da confermare
 }
 
 MONTHS = {m: i for i, m in enumerate([
@@ -166,6 +178,8 @@ def build_logo(category_src: str, raw_event: str) -> str | None:
         return None
     if category_src == 'Tennis':
         return f"{LOGO_BASE}/Tennis.png"
+    if category_src in EXTRA_LOGOS:
+        return f"{LOGO_BASE}/{EXTRA_LOGOS[category_src]}"
     if category_src in ('Italy - Serie A', 'Italy - Serie B'):
         t1, t2 = extract_teams(raw_event)
         if t1 and t2:
@@ -188,6 +202,27 @@ def map_category(category_src: str, raw_event: str) -> str | None:
         if re.search(r'\bmotogp\b', raw_event, re.IGNORECASE): return 'motogp'
         if re.search(r'\b(f1|formula 1)\b', raw_event, re.IGNORECASE): return 'f1'
         return None
+    if category_src == 'Basketball':
+        # Solo NBA, LBA (Italiano), Euroleague / Eurolega / Coppa Italia Basket
+        if re.search(r'\bNBA\b', raw_event, re.IGNORECASE): return 'basket'
+        if re.search(r'\bLBA\b', raw_event, re.IGNORECASE): return 'basket'
+        if re.search(r'Euroleague|Eurolega', raw_event, re.IGNORECASE): return 'basket'
+        if re.search(r'Coppa Italia', raw_event, re.IGNORECASE): return 'basket'
+        return None
+    if category_src == 'Volleyball':
+        # Solo campionato italiano: rilievo su nomi squadre italiane comuni / "Italy" / "Serie A"
+        if re.search(r'Italy|Serie A|Modena|Trento|Perugia|Civitanova|Piacenza|Milano|Verona|Monza|Taranto', raw_event, re.IGNORECASE):
+            return 'volleyball'
+        return None
+    if category_src == 'Ice Hockey':
+        # Ice Hockey: includi (NHL) intera categoria; eventuali filtri futuri per team/lega
+        return 'icehockey'
+    if category_src == 'Wrestling':
+        return 'wrestling'
+    if category_src == 'Boxing':
+        return 'boxing'
+    if category_src == 'Darts':
+        return 'darts'
     return None
 
 def should_include_category(cat: str) -> bool:
@@ -287,6 +322,16 @@ def main():
                 else:
                     rome_str = start_dt_utc.strftime('%d/%m %H:%M UTC')
                 title = extract_event_title(raw_event)
+                # Prefissi per basket in base alla lega se non già presente
+                if mapped_cat == 'basket':
+                    if re.search(r'\bNBA\b', raw_event, re.IGNORECASE) and not re.match(r'^NBA\b', title, re.IGNORECASE):
+                        title = f"NBA: {title}"
+                    elif re.search(r'\bLBA\b', raw_event, re.IGNORECASE) and not re.match(r'^LBA\b', title, re.IGNORECASE):
+                        title = f"LBA: {title}"
+                    elif re.search(r'Euroleague|Eurolega', raw_event, re.IGNORECASE) and not re.match(r'^(Euroleague|Eurolega)\b', title, re.IGNORECASE):
+                        title = f"Euroleague: {title}"
+                    elif re.search(r'Coppa Italia', raw_event, re.IGNORECASE) and not re.match(r'^Coppa Italia', title, re.IGNORECASE):
+                        title = f"Coppa Italia Basket: {title}"
                 logo = build_logo(effective_category_src, raw_event)
                 streams_list = []
                 for ch in game.get('channels', []):
