@@ -1015,6 +1015,35 @@ function createBuilder(initialConfig: AddonConfig = {}) {
                 
                 return { meta: metaWithPrefix };
             } else {
+                // Fallback per placeholder non persistiti in tvChannels
+                if (cleanId.startsWith('placeholder-')) {
+                    const slug = cleanId.replace('placeholder-', '') || 'general';
+                    const PLACEHOLDER_LOGO_BASE = 'https://raw.githubusercontent.com/qwertyuiop8899/logo/main';
+                    const placeholderLogo = `${PLACEHOLDER_LOGO_BASE}/nostream.png`;
+                    const placeholderVideo = `${PLACEHOLDER_LOGO_BASE}/nostream.mp4`;
+                    const name = 'Nessuno Stream disponibile oggi';
+                    const meta = {
+                        id: `tv:${cleanId}`,
+                        type: 'tv',
+                        name,
+                        posterShape: 'landscape',
+                        poster: placeholderLogo,
+                        logo: placeholderLogo,
+                        background: placeholderLogo,
+                        description: 'Nessuno Stream disponibile oggi. StreamViX',
+                        genre: [slug],
+                        genres: [slug],
+                        year: new Date().getFullYear().toString(),
+                        imdbRating: null,
+                        releaseInfo: 'Live TV',
+                        country: 'IT',
+                        language: 'it',
+                        _placeholder: true,
+                        placeholderVideo
+                    } as any;
+                    console.log(`🧩 Generated dynamic placeholder meta for missing channel ${cleanId}`);
+                    return { meta };
+                }
                 console.log(`❌ No meta found for channel ID: ${id}`);
                 return { meta: null };
             }
@@ -1071,6 +1100,13 @@ function createBuilder(initialConfig: AddonConfig = {}) {
                     const channel = tvChannels.find((c: any) => c.id === cleanId);
                     
                     if (!channel) {
+                        // Gestione placeholder non presente in tvChannels
+                        if (cleanId.startsWith('placeholder-')) {
+                            const PLACEHOLDER_LOGO_BASE = 'https://raw.githubusercontent.com/qwertyuiop8899/logo/main';
+                            const placeholderVideo = `${PLACEHOLDER_LOGO_BASE}/nostream.mp4`;
+                            console.log(`🧩 Placeholder channel requested (ephemeral): ${cleanId}`);
+                            return { streams: [ { url: placeholderVideo, title: 'Nessuno Stream' } ] };
+                        }
                         console.log(`❌ Channel ${id} not found`);
                         debugLog(`❌ Channel not found in the TV channels list. Original ID: ${id}, Clean ID: ${cleanId}`);
                         return { streams: [] };
