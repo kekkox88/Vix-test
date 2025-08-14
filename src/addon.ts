@@ -870,17 +870,18 @@ function createBuilder(initialConfig: AddonConfig = {}) {
                 // Per canali dinamici: niente EPG, mostra solo ora inizio evento
                 if ((channel as any)._dynamic) {
                     const eventStart = (channel as any).eventStart || (channel as any).eventstart; // fallback
+                    const baseDesc = channel.description || '';
                     if (eventStart) {
                         try {
                             const dt = new Date(eventStart);
                             const hhmm = dt.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Europe/Rome' }).replace(/\./g, ':');
-                            const baseDesc = channel.description || '';
-                            channelWithPrefix.description = `${channel.name}\nInizio: ${hhmm} (Europe/Rome)${baseDesc ? `\n${baseDesc}` : ''}`.trim();
+                            // Richiesto: linea unica iniziale con icona e orario + titolo evento
+                            channelWithPrefix.description = `🔴 Inizio: ${hhmm} ${channel.name}${baseDesc ? `\n${baseDesc}` : ''}`.trim();
                         } catch {
-                            channelWithPrefix.description = channel.description || channel.name;
+                            channelWithPrefix.description = baseDesc || channel.name;
                         }
                     } else {
-                        channelWithPrefix.description = channel.description || channel.name;
+                        channelWithPrefix.description = baseDesc || channel.name;
                     }
                 } else if (epgManager) {
                     // Canali tradizionali: EPG
@@ -952,15 +953,16 @@ function createBuilder(initialConfig: AddonConfig = {}) {
                 // Meta: canali dinamici senza EPG con ora inizio
                 if ((channel as any)._dynamic) {
                     const eventStart = (channel as any).eventStart || (channel as any).eventstart;
-                    let desc = channel.description || '';
+                    const baseDesc = channel.description || '';
+                    let finalDesc = baseDesc || channel.name;
                     if (eventStart) {
                         try {
                             const dt = new Date(eventStart);
                             const hhmm = dt.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Europe/Rome' }).replace(/\./g, ':');
-                            desc = `${channel.name}\nInizio: ${hhmm} (Europe/Rome)${desc ? `\n${desc}` : ''}`.trim();
+                            finalDesc = `🔴 Inizio: ${hhmm} ${channel.name}${baseDesc ? `\n${baseDesc}` : ''}`.trim();
                         } catch {/* ignore */}
                     }
-                    (metaWithPrefix as any).description = desc || channel.name;
+                    (metaWithPrefix as any).description = finalDesc;
                 } else if (epgManager) {
                     // Meta: canali tradizionali con EPG
                     try {
