@@ -133,14 +133,15 @@ const baseManifest: Manifest = {
                         "Coppe",
                         "Tennis",
                         "F1",
-                        "MotoGp"
-                        ,
+                        "MotoGp",
                         "Basket",
                         "Volleyball",
                         "Ice Hockey",
                         "Wrestling",
                         "Boxing",
-                        "Darts"
+                        "Darts",
+                        "Baseball",
+                        "NFL"
                     ]
                 }
             ]
