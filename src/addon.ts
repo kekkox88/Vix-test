@@ -809,6 +809,7 @@ function createBuilder(initialConfig: AddonConfig = {}) {
                 console.error('❌ Merge dynamic channels failed:', e);
             }
             let filteredChannels = tvChannels;
+            let requestedSlug: string | null = null;
             
             // Filtra per genere se specificato
             if (extra && extra.genre) {
@@ -846,6 +847,7 @@ function createBuilder(initialConfig: AddonConfig = {}) {
                 
                 const targetCategory = genreMap[genre];
                 if (targetCategory) {
+                    requestedSlug = targetCategory;
                     filteredChannels = tvChannels.filter((channel: any) => {
                         const categories = getChannelCategories(channel);
                         return categories.includes(targetCategory);
@@ -856,6 +858,23 @@ function createBuilder(initialConfig: AddonConfig = {}) {
                 }
             } else {
                 console.log(`📺 No genre filter, showing all ${tvChannels.length} channels`);
+            }
+
+            // Se filtro richiesto e nessun canale trovato -> aggiungi placeholder
+            if (requestedSlug && filteredChannels.length === 0) {
+                const PLACEHOLDER_ID = `placeholder-${requestedSlug}`;
+                const PLACEHOLDER_LOGO_BASE = 'https://raw.githubusercontent.com/qwertyuiop8899/logo/main';
+                const placeholderLogo = `${PLACEHOLDER_LOGO_BASE}/nostream.png`;
+                filteredChannels = [{
+                    id: PLACEHOLDER_ID,
+                    name: 'Nessuno Stream disponibile oggi',
+                    logo: placeholderLogo,
+                    poster: placeholderLogo,
+                    type: 'tv',
+                    category: [requestedSlug],
+                    description: 'Nessuno Stream disponibile oggi. StreamViX',
+                    _placeholder: true
+                }];
             }
             
             // Aggiungi prefisso tv: agli ID, posterShape landscape e EPG
@@ -1054,6 +1073,14 @@ function createBuilder(initialConfig: AddonConfig = {}) {
                         console.log(`❌ Channel ${id} not found`);
                         debugLog(`❌ Channel not found in the TV channels list. Original ID: ${id}, Clean ID: ${cleanId}`);
                         return { streams: [] };
+                    }
+
+                    // Gestione placeholder: ritorna un singolo "stream" fittizio (immagine)
+                    if ((channel as any)._placeholder) {
+                        return { streams: [ {
+                            url: (channel as any).logo || (channel as any).poster || '',
+                            title: 'Nessuno Stream'
+                        } ] };
                     }
                     
                     console.log(`✅ Found channel: ${channel.name}`);
