@@ -99,6 +99,7 @@ export function mergeDynamic(staticList: any[]): any[] {
         logo: ch.logo,
         poster: ch.logo,
         description: ch.description || '',
+  eventStart: ch.eventStart || null,
   category: ch.category || 'sport',
   // store dynamic D stream urls (array) for handler
   dynamicDUrls: ch.streams?.map(s => ({ url: s.url, title: s.title })) || [],
