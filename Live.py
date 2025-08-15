@@ -62,7 +62,7 @@ EXCLUDE_KEYWORDS_CHANNEL = ["college", "youth"]
 BASE_CATEGORIES = {
     'Italy - Serie A', 'Italy - Serie B', 'Italy - Serie C',
     'UEFA Champions League', 'UEFA Europa League', 'Conference League', 'Coppa Italia',
-    'Tennis', 'motor sports', 'motorsports',
+    'Tennis', 'motor sports', 'motorsports', 'Motorsport',  # aggiunto 'Motorsport' (singolare) dal sorgente HTML
     # Nuove categorie dirette
     'Basketball', 'Volleyball', 'Ice Hockey', 'Wrestling', 'Boxing', 'Darts', 'WWE', 'Baseball', 'Football'
     # NB: 'Soccer' non è incluso: verrà trattato come contenitore da cui estrarre solo le competizioni whitelisted
@@ -201,9 +201,13 @@ def map_category(category_src: str, raw_event: str) -> str | None:
     if category_src == 'Italy - Serie C': return 'seriec'
     if category_src in COPPA_LOGOS: return 'coppe'
     if category_src == 'Tennis': return 'tennis'
-    if category_src in ('motor sports', 'motorsports'):
-        if re.search(r'\bmotogp\b', raw_event, re.IGNORECASE): return 'motogp'
-        if re.search(r'\b(f1|formula 1)\b', raw_event, re.IGNORECASE): return 'f1'
+    # Normalizzazione categorie motori ("motor sports", "motorsports", "Motorsport")
+    norm_motor = category_src.lower().replace(' ', '')
+    if norm_motor in ('motorsports', 'motorsport'):
+        if re.search(r'\bmotogp\b', raw_event, re.IGNORECASE):
+            return 'motogp'
+        if re.search(r'\b(f1|formula 1)\b', raw_event, re.IGNORECASE):
+            return 'f1'
         return None
     if category_src == 'Basketball':
         # Solo NBA, LBA (Italiano), Euroleague / Eurolega / Coppa Italia Basket
