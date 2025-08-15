@@ -84,6 +84,8 @@ EXTRA_LOGOS = {
     'Wrestling': 'Wrestling.png',    # Nome file da confermare
     'WWE': 'Wrestling.png',          # Alias WWE usa stesso logo wrestling
     'Boxing': 'Boxing.png',          # Nome file da confermare
+    'MMA': 'Boxing.png',             # Uniforma logo per eventi MMA dentro boxing
+    'UFC': 'Boxing.png',             # Uniforma logo per eventi UFC dentro boxing
     'Baseball': 'Baseball.png',
     'NFL': 'NFL.png',
     'Darts': 'Darts.png'             # Nome file da confermare
