@@ -348,9 +348,11 @@ def main():
                 start_dt_utc = parse_event_datetime(day, time_str)
                 if pytz and TZ_ROME:
                     rome_dt = start_dt_utc.astimezone(TZ_ROME)
+                    # Mostra data + ora locale Roma
                     rome_str = rome_dt.strftime('%d/%m %H:%M')
                 else:
-                    rome_str = start_dt_utc.strftime('%d/%m %H:%M UTC')
+                    # Nessuna timezone: mostra solo data senza orario e senza etichetta UTC
+                    rome_str = start_dt_utc.strftime('%d/%m')
                 title = extract_event_title(raw_event)
                 # Prefissi per basket in base alla lega se non già presente
                 if mapped_cat == 'basket':
