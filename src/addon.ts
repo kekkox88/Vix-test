@@ -111,7 +111,7 @@ const baseManifest: Manifest = {
         {
             type: "tv",
             id: "tv-channels",
-            name: "StreamViX TV",
+            name: "Live 🔴",
             extra: [
                 {
                     name: "genre",
@@ -799,48 +799,12 @@ function createBuilder(initialConfig: AddonConfig = {}) {
     if (initialConfig.mediaFlowProxyUrl || initialConfig.enableMpd || initialConfig.tmdbApiKey) {
         manifest.name;
     }
-
-    // Helper per interpretare i flag delle checkbox
-    const isEnabled = (v: any) => v === true || v === 'true' || v === 'on' || v === 1 || v === '1';
-
-    // LIVE TV (default OFF se non specificato)
-    const liveTvEnabled = isEnabled(initialConfig.enableLiveTV);
-    // MPD Streams (default OFF)
-    const mpdEnabled = isEnabled(initialConfig.enableMpd);
-    // AnimeUnity / AnimeSaturn (compatibilità con possibili nomi diversi dei campi)
-    const animeUnityEnabled = isEnabled((initialConfig as any).animeunityEnabled ?? (initialConfig as any).enableAnimeUnity);
-    const animeSaturnEnabled = isEnabled((initialConfig as any).animesaturnEnabled ?? (initialConfig as any).enableAnimeSaturn);
-
-    if (!liveTvEnabled) {
-        // Rimuovi catalogo TV e tipo 'tv' se presente
-        if (Array.isArray(manifest.catalogs)) {
-            manifest.catalogs = manifest.catalogs.filter(c => c.id !== 'tv-channels');
-        }
-        if (Array.isArray(manifest.types)) {
-            manifest.types = manifest.types.filter(t => t !== 'tv');
-        }
-        if (Array.isArray(manifest.idPrefixes)) {
-            manifest.idPrefixes = manifest.idPrefixes.filter(p => p !== 'tv');
-        }
-        if (Array.isArray(manifest.resources)) {
-            // Mantieni comunque stream/meta per film/serie; rimuovi catalog se unico TV
-            manifest.resources = manifest.resources.filter(r => r !== 'catalog');
-        }
-        console.log('⚙️ Live TV disabilitato: catalogo tv-channels rimosso dal manifest');
-    } else {
-        console.log('⚙️ Live TV abilitato: catalogo tv-channels presente');
-    }
     
     const builder = new addonBuilder(manifest);
 
     // === HANDLER CATALOGO TV ===
     builder.defineCatalogHandler(async ({ type, id, extra }: { type: string; id: string; extra?: any }) => {
         console.log(`📺 CATALOG REQUEST: type=${type}, id=${id}, extra=${JSON.stringify(extra)}`);
-        // Se Live TV disabilitato rispondi subito vuoto
-        if (!liveTvEnabled && type === 'tv') {
-            console.log('⛔ Live TV disabilitato: catalog richiesta ignorata');
-            return { metas: [] };
-        }
         if (type === "tv") {
             // Merge dynamic channels before filtering
             try {
@@ -1035,10 +999,6 @@ function createBuilder(initialConfig: AddonConfig = {}) {
     // === HANDLER META ===
     builder.defineMetaHandler(async ({ type, id }: { type: string; id: string }) => {
         console.log(`📺 META REQUEST: type=${type}, id=${id}`);
-        if (!liveTvEnabled && type === 'tv') {
-            console.log('⛔ Live TV disabilitato: meta richiesta ignorata');
-            return { meta: null };
-        }
         if (type === "tv") {
             // Gestisci tutti i possibili formati di ID che Stremio può inviare
             let cleanId = id;
@@ -1182,10 +1142,6 @@ function createBuilder(initialConfig: AddonConfig = {}) {
 
                 // === LOGICA TV ===
                 if (type === "tv") {
-                    if (!liveTvEnabled) {
-                        console.log('⛔ Live TV disabilitato: stream richiesta ignorata');
-                        return { streams: [] };
-                    }
                     // Improved channel ID parsing to handle different formats from Stremio
                     let cleanId = id;
                     
@@ -1267,8 +1223,8 @@ function createBuilder(initialConfig: AddonConfig = {}) {
                         }
                     }
 
-                    // staticUrl (solo se MPD abilitato)
-                    if (mpdEnabled && (channel as any).staticUrl) {
+                    // staticUrl (solo se enableMpd è attivo)
+                    if ((channel as any).staticUrl && (config.enableMpd === 'on' || process.env.ENABLE_MPD?.toLowerCase() === 'true')) {
                         console.log(`🔧 [staticUrl] Raw URL: ${(channel as any).staticUrl}`);
                         const decodedUrl = decodeStaticUrl((channel as any).staticUrl);
                         console.log(`🔧 [staticUrl] Decoded URL: ${decodedUrl}`);
@@ -1304,8 +1260,8 @@ function createBuilder(initialConfig: AddonConfig = {}) {
                             debugLog(`Aggiunto staticUrl Direct: ${decodedUrl}`);
                         }
                     }
-                    // staticUrl2 (solo se MPD abilitato)
-                    if (mpdEnabled && (channel as any).staticUrl2) {
+                    // staticUrl2 (solo se enableMpd è attivo)
+                    if ((channel as any).staticUrl2 && (config.enableMpd === 'on' || process.env.ENABLE_MPD?.toLowerCase() === 'true')) {
                         console.log(`🔧 [staticUrl2] Raw URL: ${(channel as any).staticUrl2}`);
                         const decodedUrl = decodeStaticUrl((channel as any).staticUrl2);
                         console.log(`🔧 [staticUrl2] Decoded URL: ${decodedUrl}`);
@@ -1342,7 +1298,7 @@ function createBuilder(initialConfig: AddonConfig = {}) {
                         }
                     }
 
-                    // staticUrlMpd (sempre visibile, indipendente dal flag MPD)
+                    // staticUrlMpd (sempre attivo se presente, non dipende da enableMpd)
                     if ((channel as any).staticUrlMpd) {
                         console.log(`🔧 [staticUrlMpd] Raw URL: ${(channel as any).staticUrlMpd}`);
                         const decodedUrl = decodeStaticUrl((channel as any).staticUrlMpd);
@@ -1637,12 +1593,15 @@ function createBuilder(initialConfig: AddonConfig = {}) {
                 // === LOGICA ANIME/FILM (originale) ===
                 // Per tutto il resto, usa solo mediaFlowProxyUrl/mediaFlowProxyPassword
                 // Gestione AnimeUnity per ID Kitsu o MAL con fallback variabile ambiente
-                // Usa i flag calcolati sopra (ignora env quando checkbox disabilitata)
-                const animeUnityCfgEnabled = animeUnityEnabled || ((config as any).animeunityEnabled === 'on');
-                const animeSaturnCfgEnabled = animeSaturnEnabled || ((config as any).animesaturnEnabled === 'on');
+                const animeUnityEnabled = (config.animeunityEnabled === 'on') || 
+                                        (process.env.ANIMEUNITY_ENABLED?.toLowerCase() === 'true');
+                
+                // Gestione AnimeSaturn per ID Kitsu o MAL con fallback variabile ambiente
+                const animeSaturnEnabled = (config.animesaturnEnabled === 'on') || 
+                                        (process.env.ANIMESATURN_ENABLED?.toLowerCase() === 'true');
                 
                 // Gestione parallela AnimeUnity e AnimeSaturn per ID Kitsu, MAL, IMDB, TMDB
-                if ((id.startsWith('kitsu:') || id.startsWith('mal:') || id.startsWith('tt') || id.startsWith('tmdb:')) && (animeUnityCfgEnabled || animeSaturnCfgEnabled)) {
+                if ((id.startsWith('kitsu:') || id.startsWith('mal:') || id.startsWith('tt') || id.startsWith('tmdb:')) && (animeUnityEnabled || animeSaturnEnabled)) {
                     const animeUnityConfig: AnimeUnityConfig = {
                         enabled: animeUnityEnabled,
                         mfpUrl: config.mediaFlowProxyUrl || process.env.MFP_URL || '',
@@ -1676,7 +1635,7 @@ function createBuilder(initialConfig: AddonConfig = {}) {
                         }
                     }
                     // AnimeUnity
-                    if (animeUnityCfgEnabled) {
+                    if (animeUnityEnabled) {
                         try {
                             const animeUnityProvider = new AnimeUnityProvider(animeUnityConfig);
                             let animeUnityResult;
@@ -1704,7 +1663,7 @@ function createBuilder(initialConfig: AddonConfig = {}) {
                         }
                     }
                     // AnimeSaturn
-                    if (animeSaturnCfgEnabled) {
+                    if (animeSaturnEnabled) {
                         try {
                             const { AnimeSaturnProvider } = await import('./providers/animesaturn-provider');
                             const animeSaturnProvider = new AnimeSaturnProvider(animeSaturnConfig);
