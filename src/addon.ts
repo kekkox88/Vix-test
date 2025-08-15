@@ -1607,7 +1607,7 @@ function createBuilder(initialConfig: AddonConfig = {}) {
                         mfpPassword: config.mediaFlowProxyPassword || process.env.MFP_PSW || '',
                         mfpProxyUrl: config.mediaFlowProxyUrl || process.env.MFP_URL || '',
                         mfpProxyPassword: config.mediaFlowProxyPassword || process.env.MFP_PSW || '',
-                        tmdbApiKey: config.tmdbApiKey || process.env.TMDB_API_KEY || ''
+                        tmdbApiKey: config.tmdbApiKey || process.env.TMDB_API_KEY || '40a9faa1f6741afb2c0c40238d85f8d0'
                     };
                     let animeUnityStreams: Stream[] = [];
                     let animeSaturnStreams: Stream[] = [];
