@@ -223,6 +223,8 @@ def map_category(category_src: str, raw_event: str) -> str | None:
         # Solo NBA, LBA (Italiano), Euroleague / Eurolega / Coppa Italia Basket
         if re.search(r'\bNBA\b', raw_event, re.IGNORECASE): return 'basket'
         if re.search(r'\bLBA\b', raw_event, re.IGNORECASE): return 'basket'
+        if re.search(r'\bFIBA\b', raw_event, re.IGNORECASE): return 'basket'
+        if re.search(r'\bEurobasket\b', raw_event, re.IGNORECASE): return 'basket'
         if re.search(r'Euroleague|Eurolega', raw_event, re.IGNORECASE): return 'basket'
         if re.search(r'Coppa Italia', raw_event, re.IGNORECASE): return 'basket'
         return None
