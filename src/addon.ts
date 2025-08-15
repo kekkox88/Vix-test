@@ -111,7 +111,7 @@ const baseManifest: Manifest = {
         {
             type: "tv",
             id: "tv-channels",
-            name: "Live 🔴",
+            name: "StreamViX TV",
             extra: [
                 {
                     name: "genre",
