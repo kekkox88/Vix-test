@@ -66,7 +66,6 @@ interface AddonConfig {
   enableMpd?: string;
   animeunityEnabled?: string;
   animesaturnEnabled?: string;
-  enableLiveTV?: string;
   [key: string]: any;
 }
 
@@ -74,8 +73,7 @@ interface AddonConfig {
 const configCache: AddonConfig = {
   mediaFlowProxyUrl: process.env.MFP_URL,
   mediaFlowProxyPassword: process.env.MFP_PSW,
-  tmdbApiKey: process.env.TMDB_API_KEY || '40a9faa1f6741afb2c0c40238d85f8d0',
-  enableLiveTV: 'on'
+  tmdbApiKey: process.env.TMDB_API_KEY || '40a9faa1f6741afb2c0c40238d85f8d0'
 };
 
 // Funzione globale per log di debug
@@ -184,11 +182,6 @@ const baseManifest: Manifest = {
         {
             key: "animesaturnEnabled",
             title: "Enable AnimeSaturn",
-            type: "checkbox"
-        },
-        {
-            key: "enableLiveTV",
-            title: "Enable Live TV",
             type: "checkbox"
         }
     ]
