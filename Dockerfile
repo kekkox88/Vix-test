@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 
 # Clona il repository Git
 # Sostituisci con l'URL del tuo repository e opzionalmente un branch o tag
-ARG GIT_REPO_URL="https://github.com/qwertyuiop8899/test.git"
+ARG GIT_REPO_URL="https://github.com/kekkox88/Vix-test.git"
 ARG GIT_BRANCH="main"
 RUN git -c http.sslVerify=false clone --branch ${GIT_BRANCH} --depth 1 ${GIT_REPO_URL} .
 # Il "." alla fine clona il contenuto della repo direttamente in /usr/src/app
@@ -47,10 +47,11 @@ RUN pnpm run build
 
 # Esponi la porta su cui l'applicazione ascolterà (Hugging Face la mapperà)
 # Non è strettamente necessario EXPOSE qui perché HF assegna la porta tramite env var
-# EXPOSE 3000 
+EXPOSE 7860
 
 # Definisci il comando per avviare l'applicazione
 CMD [ "pnpm", "start" ]
+
 
 
 
